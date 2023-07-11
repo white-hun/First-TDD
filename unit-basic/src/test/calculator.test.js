@@ -1,0 +1,54 @@
+const Calculator = require("../calculator");
+
+// describe 관련있는 test들을 관련 그룹으로 묶을 수 있다
+// it calculator를 가르키는 3인칭 주어
+describe("Calculator", () => {
+  let cal;
+  beforeEach(() => {
+    cal = new Calculator();
+  });
+
+  it("inits with 0", () => {
+    expect(cal.value).toBe(0);
+  });
+
+  it("sets", () => {
+    cal.set(9);
+    expect(cal.value).toBe(9);
+  });
+
+  it("clear", () => {
+    cal.set(9);
+    cal.clear();
+    expect(cal.value).toBe(0);
+  });
+
+  it("adds", () => {
+    cal.set(1);
+    cal.add(2);
+    expect(cal.value).toBe(3);
+  });
+
+  it("subtracts", () => {
+    cal.subtract(1);
+    expect(cal.value).toBe(-1);
+  });
+
+  it("multiplies", () => {
+    cal.set(5);
+    cal.multiply(4);
+    expect(cal.value).toBe(20);
+  });
+
+  describe("divides", () => {
+    it("0 / 0 === NaN", () => {
+      cal.divide(0);
+      expect(cal.value).toBe(NaN);
+    });
+    it("1 / 0 === Infinity", () => {
+      cal.set(1);
+      cal.divide(0);
+      expect(cal.value).toBe(Infinity);
+    });
+  });
+});
