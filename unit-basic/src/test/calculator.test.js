@@ -1,6 +1,6 @@
 const Calculator = require("../calculator");
 
-// describe 관련있는 test들을 관련 그룹으로 묶을 수 있다
+// describe: 관련있는 test들을 관련 그룹으로 묶을 수 있다
 // it calculator를 가르키는 3인칭 주어
 describe("Calculator", () => {
   let cal;
@@ -27,6 +27,12 @@ describe("Calculator", () => {
     cal.set(1);
     cal.add(2);
     expect(cal.value).toBe(3);
+  });
+
+  it("add should throw an error if value is greater than 100", () => {
+    expect(() => {
+      cal.add(101);
+    }).toThrow("Value can not be greater than 100");
   });
 
   it("subtracts", () => {
