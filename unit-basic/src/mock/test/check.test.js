@@ -1,12 +1,12 @@
 const check = require("../check");
 
 describe("check", () => {
-  let onSuccess;
-  let onFail;
+  let onSuccess; // mock 함수 변수
+  let onFail; // mock 함수 변수
 
   beforeEach(() => {
-    onSuccess = jest.fn();
-    onFail = jest.fn();
+    onSuccess = jest.fn(); // mock 함수 선언
+    onFail = jest.fn(); // mock 함수 선언
   });
 
   it("should call onSuccess when predicate is when true", () => {
