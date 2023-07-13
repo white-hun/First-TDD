@@ -8,7 +8,7 @@ describe("ProductService - Stub", () => {
     productService = new ProductService(new StubProductClient());
   });
 
-  it("shouldfilter out only available items", async () => {
+  it("should filter out only available items", async () => {
     const items = await productService.fetchAvailableItems();
     expect(items.length).toBe(1);
     expect(items).toEqual([{ item: "🥛", available: true }]);
