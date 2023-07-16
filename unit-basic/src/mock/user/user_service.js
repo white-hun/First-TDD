@@ -8,7 +8,7 @@ class UserService {
     if (!this.isLogedIn) {
       return this.userClient
         .login(id, password) //
-        .then((data) => (this.isLogedIN = true));
+        .then((data) => (this.isLogedIn = true));
     } // 두번째 부터는 client에서 로그인 요청을 하지않는다
   }
 }
