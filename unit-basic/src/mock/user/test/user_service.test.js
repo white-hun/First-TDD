@@ -12,6 +12,7 @@ describe("UserService", () => {
   });
   let userService;
 
+  // test가 수행되기 전에 호출되는 BeforeEach, 딱 한번만 호출되는 beforeAll
   beforeEach(() => {
     userService = new UserService(new UserClient());
     // login.mockClear();
