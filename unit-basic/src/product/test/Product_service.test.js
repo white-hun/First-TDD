@@ -4,20 +4,13 @@ const StubProductClient = require("./stub_product_client");
 describe("ProductService - Stub", () => {
   let productService;
 
-  // test가 수행되기 전 before(Each, All)나, 수행되고 난 후 after(Each, All)가 존재한다
   beforeEach(() => {
     productService = new ProductService(new StubProductClient());
   });
 
   it("should filter out only available items", async () => {
-    // Structure of test(TripleA, GWT)
-    // 준비 Arrange.Given
     const items = await productService.fetchAvailableItems();
-
-    // 실행 Act, When
     expect(items.length).toBe(1);
-
-    // 검증 Assert, Then
     expect(items).toEqual([{ item: "🥛", available: true }]);
   });
 });
