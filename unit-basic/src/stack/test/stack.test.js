@@ -42,11 +42,12 @@ describe("Stack", () => {
   let stack;
 
   beforeEach(() => {
-    stack = new Stack();
+    stack = new Stack(); // stack은 항상 새로운 Stack을 만든다
   });
 
+  // stack은 처음에 만들어졌을 때 항상 비어있는 상태가 되어야 한다
   it("is created empty", () => {
-    expect(stack.size()).toBe(0);
+    expect(stack.size()).toBe(0); // size api
   });
 
   it("allows to push item", () => {
@@ -74,6 +75,13 @@ describe("Stack", () => {
       expect(() => {
         stack.peek();
       }).toThrow("Stack is empty");
+    });
+    it("returns the last pushed item byt keeps it in the stack", () => {
+      stack.push("banana");
+      stack.push("apple");
+
+      expect(stack.peek()).toBe("apple");
+      expect(stack.size()).toBe(2);
     });
   });
 });

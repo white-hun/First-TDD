@@ -22,7 +22,7 @@ class Stack {
     if (this.array.length === 0) {
       throw new Error("Stack is empty");
     }
-    return this.array.pop();
+    return this.array[this.size() - 1]();
   }
 }
 
